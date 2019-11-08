@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{%block head_content %}
+<style media="screen">
+
+.formcontrol{
+  border-style: outset;
+  /*border : 10px outset black;*/
+  margin: 200px 450px 200px 450px;
+  background-color:white;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);/*box-shadow: 10px 10px 5px grey;
+*/}
+.alignright{
+  text-align: right;
+  margin-right: 20px;
+
+}
+
+</style>
+{% endblock%}
+{% block content %}
+<center>
+
+  <form method="post" class="formcontrol">
+    <h2>Amipro CRM</h2>
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit" name="button">Log In</button>
+  </form>
+</center>
+
+{% endblock %}

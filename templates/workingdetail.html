@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Employee name's and there working details</h2>
+{% for a in employ %}
+   <div class="user">
+     <h3>{{a.Name}}</h3>
+     <p>{{a.Working_in}}</p>
+  </div>
+    {% endfor %}
+{% endblock %}

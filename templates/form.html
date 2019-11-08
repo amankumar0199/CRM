@@ -1,0 +1,24 @@
+{% extends 'base.html'%}
+{% block content %}
+<head>
+  <title>Report</title>
+</head>
+<body>
+  <h2>Activity form</h2>
+  <form action="{% url 'ActivityF' %}" method="POST">
+    {% csrf_token %}
+    {{form.ActivityName}}<br><br>
+    {{form.FromDate}}<br><br>
+    {{form.ToDate}}<br><br>
+    {{form.Venue}}<br><br>
+    {{form.Country}}<br><br>
+    {{form.State}}<br><br>
+    {{form.District}}<br><br>
+    {{form.Village_Panchayat}}<br><br>
+    {{form.ActivityDescription}}<br><br>
+
+    <input type="submit" name="submit" value="submit"><br>
+
+  </form>
+</body>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+
+  <meta charset="utf-8">
+  <title>Amipro CRM portal</title>
+  <link rel="stylesheet" href="{% static 'basestyle.css' %}">
+  <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  {% block head_content %}
+  {% endblock %}
+</head>
+
+<body>
+
+  <ul>
+    {% if user.is_authenticated %}
+        <li><a href="{% url 'home' %}">AMIPRO SOLUTIONS</a></li>
+        <li class="dropdown"><a href="#" class= "dropbtn">Forms<i class="fas fa-caret-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#">Leave Application</a>
+            <a href="#">Sunday Working</a>
+            <hr>
+            <a href="#">Leave Application Approval</a>
+            <a href="#">Sunday Working Approval</a>
+
+          </div>
+        </li>
+
+        <li class="dropdown"><a href="#" class= "dropbtn">Reports<i class="fas fa-caret-down"></i></a>
+          <div class="dropdown-content">
+            <a href="{%url 'ActivityReport'%}">Activity Report</a>
+            <a href="#">Enquiry Report</a>
+
+          </div>
+        </li>
+
+        <li class="dropdown"><a href="#" class= "dropbtn">Employees<i class="fas fa-caret-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#">Nothing to show</a>
+          </div>
+        </li>
+
+        <li class="dropdown"><a href="#" class= "dropbtn">Transactions<i class="fas fa-caret-down"></i></a>
+          <div class="dropdown-content">
+            <a href="#">Enquiry</a>
+            <a href="#">Expenses</a>
+            <hr>
+            <a href="#">Official work</a>
+            <hr>
+            <a href="#">My Expenses</a>
+            <a href="#">Expense Approval</a>
+          </div>
+        </li>
+
+
+        <li class="dropdown" class= "alignright" style="float:right">
+          <a href="#" class= "dropbtn"><i class="far fa-user">&nbspWelcome: {{user.username|upper}}</i></a>
+            <div class="dropdown-content">
+              <a href="#">Profile</a>
+            </div>
+        </li>
+        <li class="alignright" style="float:right",class="dropdown">
+          <a href="{% url 'logout' %}" ><i class="fas fa-power-off">&nbspSign Out</i></a>
+        </li>
+
+    {% else %}
+        <li class="alignright"><a href="{% url 'login' %}"><i class="fas fa-sign-in-alt">&nbspLog In </i></a></li>
+        <li class="alignright"><a href="{% url 'signup' %}"><i class="fas fa-user-plus">&nbspSign Up</i></a></li>
+    {% endif %}
+  </ul>
+
+      <!-- {% if user.is_authenticated %}
+      <p>AMIPRO SOLUTIONS</p>
+      <ul>
+
+      <li class = "alignright">Welcome: {{user.username|upper}}</li>
+      <li class="alignright"><i class="fas fa-power-off"></i><a href="{% url 'logout' %}">sign out</a></li>
+      </ul>
+      {% else %}
+      <p class="alignright"><a href="{% url 'login' %}">Login here</a></p>
+      <p class="alignright"><a href="{% url 'signup' %}">Signup here</a></p>
+
+      {% endif %} -->
+
+      {% block content %}
+      {% endblock %}
+
+
+</body>
+</html>

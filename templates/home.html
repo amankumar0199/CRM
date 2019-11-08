@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+{% block content%}
+  <head>
+    <meta charset="utf-8">
+    <title>CRM</title>
+  </head>
+  <center>
+    {% if "aman" in a %}
+        <div class="body2">
+          <p><a href="{% url 'working' %}">Working detail</a></p>
+        </div>
+    {% else %}
+        <div class="body2">
+          <p><a href="{% url 'ActivityF'%}">Forms</a></p>
+          <p><a href="{% url 'add_working' %}">So , where you're going to work today?</a></p>
+        </div>
+    {% endif %}
+  </center>
+
+{% endblock %}
